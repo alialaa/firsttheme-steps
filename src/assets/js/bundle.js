@@ -1,5 +1,8 @@
+import $ from 'jquery';
 import './components/slider';
 
 let x = 0;
 
-console.log('wordpress')
+$('body').click(() => {
+	alert(true)
+})
