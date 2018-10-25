@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "gulp",
-    "build": "gulp build --prod"
+    "build": "gulp build --prod",
+    "bundle": "gulp bundle --prod"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.1",
+    "gulp-zip": "^4.2.0",
     "vinyl-named": "^1.1.0",
     "webpack-stream": "^5.1.1",
     "yargs": "^12.0.2"
