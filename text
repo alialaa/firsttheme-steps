@@ -1,0 +1,36 @@
+ok the other student reached the lecture: 'Setting up NPM and Gulp' and here's the code for it: https://github.com/alialaa/firsttheme-steps/tree/setting-up-npm-and-gulp
+
+all you have to do is pull this branch, then create a new branch for the next lecture and only use lowercase letters and dashes for the branch name, please don't use capital letters or any special charachters, for example the next lecture is called "Development vs Production in Gulp Tasks', so you can create a branch called dev-vs-prod-in-gulp-tasks or something like that, and then in this branch you will type after me the code I wrote in this lecture and push it and then create a new branch for the next lecture and so on.
+
+Please make sure that while you are coding that you actually test your code and make sure it's working properly, for example for section 3 make sure the gulp tasks are actually working, don't just copy the code after me without testing.
+
+is this clear?
+git pull <https://github.com/alialaa/firsttheme-steps/tree/setting-up-npm-and-gulp>
+
+https://github.com/alialaa/firsttheme-steps/tree/setting-up-npm-and-gulp
+
+$ git config --global user.name "Ankit Jindal"
+$ git config --global user.email akjaph@gmail.com
+
+git commit -m "[test commit by ankit]"
+
+creating-a-gulp-task-for-styles
+creating-a-gulp-task-for-styles-cont
+compressing-images-and-copying-files
+cleaning-files-and-serializing-taks
+creating-gulp-task-for-javascript-cont
+improving-the-tasks-with-browsersync
+adding-js-plugins-ryt-way
+
+creating-replaceable-placeholder-prefix
+
+bundling-files-for-production
+
+creating-custom-action-hooks
+
+
+
+
+silk carousal
+normalize 
+fortawesome
