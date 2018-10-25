@@ -6,7 +6,7 @@
                 <?php if(have_posts()) { ?>
                 <?php while(have_posts()) { ?>
                 <?php the_post(); ?>
-                <article <?php post_class('c-post u-margin-bottom-20') ?>>
+                <article <?php echo post_class('c-post u-margin-bottom-20'); ?> >
                     <h2 class="c-post__title">
                     <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title() ?>
                     </a>
@@ -16,7 +16,7 @@
                     </div>
                     <div class="c-post__excerpt">
                         <?php the_excerpt(); ?>
-                    </diV>
+                    </div>
                     <?php _themename_readmore_link(); ?>
                 </article>
                 <?php } ?>
