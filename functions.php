@@ -9,7 +9,9 @@ require_once('lib/navigation.php');
 
 function _themename_handle_delete_post() {
     if( isset($_GET['action']) && $_GET['action'] === '_themename_delete_post' ) {
-
+        if(!isset($_GET['nonce']) || !wp_verify_nonce( $_GET['nonce'], '_themename_delete_post_' . $_GET['post'] ) ) {
+            return;
+        }
         $post_id = isset($_GET['post']) ? $_GET['post'] : null;
         $post = get_post((int) $post_id);
         if(empty($post)) {
