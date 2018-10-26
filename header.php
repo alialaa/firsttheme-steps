@@ -10,14 +10,18 @@
     <a class="u-skip-link" href="#content"><?php esc_attr_e('Skip to content','_themename'); ?></a>
 	<header role="banner" class="u-margin-bottom-40">
 		<div class="c-header">
-		 <div class="o-container u-flex u-align-justify u-align-middle">
+            <div class="o-container u-flex u-align-justify u-align-middle">
                 <div class="c-header__logo">
-                    <a class="c-header__blogname" href="<?php esc_url(home_url('/')); ?>">
-						<?php esc_html(bloginfo( 'name' )); ?>
-                    </a>
+                    <?php if (has_custom_logo( )) {
+                        the_custom_logo();
+                    } else { ?>
+                        <a class="c-header__blogname" href="<?php esc_url(home_url('/')); ?>">
+                            <?php esc_html(bloginfo( 'name' )); ?>
+                        </a>
+                    <?php } ?>
                 </div>
                 <?php get_search_form(); ?>
-         </div>
+            </div>
         </div>
         <div class="c-navigation">
             <div class="o-container">
