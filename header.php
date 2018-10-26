@@ -8,12 +8,12 @@
 </head>
 <body <?php body_class(); ?>>
     <a class="u-skip-link" href="#content"><?php esc_attr_e('Skip to content','_themename'); ?></a>
-    <header role="banner" class="u-margin-bottom-40">
-        <div class="c-header">
-         <div class="o-container u-flex u-align-justify u-align-middle">
+	<header role="banner" class="u-margin-bottom-40">
+		<div class="c-header">
+		 <div class="o-container u-flex u-align-justify u-align-middle">
                 <div class="c-header__logo">
                     <a class="c-header__blogname" href="<?php esc_url(home_url('/')); ?>">
-                        <?php esc_html(bloginfo( 'name' )); ?>
+						<?php esc_html(bloginfo( 'name' )); ?>
                     </a>
                 </div>
                 <?php get_search_form(); ?>
@@ -26,6 +26,6 @@
                 </nav>
             </div>
         </div>
-    </header>
-    
-    <div id="content">
+	</header>
+	
+	<div id="content">
