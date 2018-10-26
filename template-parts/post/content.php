@@ -11,4 +11,5 @@
     </div>
     <?php _themename_readmore_link(); ?>
     <?php echo _themename_delete_post() ?>
+    <?php var_dump(get_post_meta( get_the_ID(), 'price',true )) ?>
 </article>
