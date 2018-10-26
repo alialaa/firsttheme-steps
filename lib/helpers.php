@@ -34,5 +34,16 @@ function _themename_readmore_link() {
     );
    echo '</a>';
 }
+
+function _themename_delete_post() {
+    $url = add_query_arg([
+        'action' => '_themename_delete_post',
+        'post' => get_the_ID(),
+    ], home_url());
+    
+    return "<a href='" . esc_url($url) . "'>" . esc_html__( 'Delete Post', '_themename' ) . "</a>";
+
+}
+
 ?>
 
