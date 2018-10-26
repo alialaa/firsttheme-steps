@@ -21,7 +21,7 @@ function _themename_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting('_themename_accent_colour', array(
         'default' => '#20ddae',
-        //'transport' => 'postMessage',
+        'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
 
