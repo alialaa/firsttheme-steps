@@ -15,6 +15,15 @@
 	            'force_activation' => false,
 	            'force_deactivation' => false,
 	        ),
+	        array(
+	            'name' => '_themename shortcodes',
+	            'slug' => '_themename-shortcodes',
+	            'source' => get_template_directory_uri() . '/lib/plugins/_themename-shortcodes.zip',
+	            'required' => true,
+	            'version' => '1.0.0',
+	            'force_activation' => false,
+	            'force_deactivation' => false,
+	        ),
 	    );
 
 	    $config = array (

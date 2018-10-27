@@ -11,33 +11,6 @@ require_once('lib/comment-callback.php');
 //require_once('lib/metaboxes.php');
 
 
-function _themename_button($atts = [], $content = null, $tag=null) {
-    extract(shortcode_atts([
-        'color' => 'red',
-        'text' => 'Button'
-    ], $atts, $tag));
-
-    return '<button style="background-color: ' . esc_attr($color) . '">' . do_shortcode($content) .'</button>';
-}
-add_shortcode( '_themename_button', '_themename_button' );
-
-// function func($out, $pairs, $atts, $shortcdoe ){
-//     return [
-//         'color' => 'blue'
-//     ];
-// }
-
-// add_filter( 'shortcode_atts__themename_button', 'func' );
-
-function _themename_icon($atts) {
-    extract(shortcode_atts([
-        'icon' => '',
-    ], $atts));
-
-    return '<i class="' . esc_attr($icon) .'" aria-hidden ></i>';
-}
-add_shortcode( '_themename_icon', '_themename_icon' );
-
 
 function _themename_handle_delete_post() {
     if( isset($_GET['action']) && $_GET['action'] === '_themename_delete_post' ) {
