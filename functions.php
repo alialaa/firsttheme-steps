@@ -11,15 +11,23 @@ require_once('lib/comment-callback.php');
 //require_once('lib/metaboxes.php');
 
 
-function _themename_button($atts) {
+function _themename_button($atts = [], $content = null, $tag=null) {
     extract(shortcode_atts([
         'color' => 'red',
         'text' => 'Button'
-    ], $atts));
+    ], $atts, $tag));
 
-    return '<button style="background-color: ' . esc_attr($color) . '">' . esc_html($text) .'</button>';
+    return '<button style="background-color: ' . esc_attr($color) . '">' . do_shortcode($content) .'</button>';
 }
 add_shortcode( '_themename_button', '_themename_button' );
+
+// function func($out, $pairs, $atts, $shortcdoe ){
+//     return [
+//         'color' => 'blue'
+//     ];
+// }
+
+// add_filter( 'shortcode_atts__themename_button', 'func' );
 
 function _themename_icon($atts) {
     extract(shortcode_atts([
