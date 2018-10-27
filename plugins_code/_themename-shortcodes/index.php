@@ -18,6 +18,7 @@ if( !defined('WPINC')) {
 
 function _themename__pluginname_init(){
 	include_once('includes/shortcodes/button/button.php');
+	include_once('includes/shortcodes/slider/slider.php');
 }
 
 
