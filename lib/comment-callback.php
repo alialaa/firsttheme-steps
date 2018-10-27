@@ -2,7 +2,7 @@
 function _themename_comment_callback( $comment, $args, $depth) {
     ?>
     <li id="comment-<?php comment_ID(); ?>" <?php comment_class( ['c-comment', $comment->comment_parent ? 'c-comment--child' : ''] ) ?>>
-        <article class="c-comment__body">
+        <article id="div-comment-<?php comment_ID(); ?>" class="c-comment__body">
 
             <?php echo get_avatar( $comment, 100, false, false, array('class' => 'c-comment__avatar') ); ?>
             <?php edit_comment_link( esc_html__( 'Edit Comment', '_themename' ), '<span class="c-comment__edit-link">', '</span>' ); ?>
@@ -20,6 +20,23 @@ function _themename_comment_callback( $comment, $args, $depth) {
                             ?>
                         </time>
                     </a>
+
+                <?php if($comment->comment_approved == '0') { ?>
+                    <p class="c-comment__awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', '_themename' ); ?></p>
+                <?php } ?>
+                    
+                <?php comment_text(); ?>
+                
+                <?php
+                    comment_reply_link( array(
+                        'depth' => $depth,
+                        'max_depth' => $args['max_depth'],
+                        'add_below' => 'div-comment',
+                        'before' => '<div class="c-comment__reply-link">',
+                        'after' => '</div>'
+                    ));
+                ?> 
+                
 
                 </div>
 
