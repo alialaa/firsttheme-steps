@@ -11,6 +11,7 @@
 			'flex-height'=>true,
 			'flex-width'=>true,
 		) );
+		add_theme_support( 'align-wide' );
 	}
 
 	add_action( 'after_setup_theme', '_themename_theme_support' );
