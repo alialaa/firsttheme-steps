@@ -19,6 +19,9 @@
                         if (get_theme_mod('_themename_display_author_info', true)) {
                             get_template_part('template-parts/single/author');
                         } 
+
+                        get_template_part('template-parts/single/navigation');
+
                         ?>
 
                     <?php } ?>
