@@ -2,7 +2,7 @@
 /*
 Plugin Name:  _themename _pluginname
 Plugin URI:   
-Description:  Adding Shortcodes for _themename
+Description:  Adding Custom Post Types for _themename
 Version:      1.0.0
 Author:       Ali Alaa
 Author URI:   http://alialaa.com/
