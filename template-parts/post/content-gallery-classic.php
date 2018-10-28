@@ -1,27 +1,20 @@
-<?php
-$blocks =  gutenberg_parse_blocks(get_the_content());
-$gallery = false;
-foreach ($blocks as $block) {
-    if($block['blockName'] === 'core/gallery') {
-        $gallery = $block;
-        break;
-    }
-}
-?>
-
 <article <?php post_class('c-post u-margin-bottom-20'); ?>>
     
     <div class="c-post__inner">
 
-        <?php if(get_the_post_thumbnail() !== '' && (!$gallery || is_single())) { ?>
+        <?php if(get_the_post_thumbnail() !== '' && (!get_post_gallery() || is_single())) { ?>
             <div class="c-post__thumbnail">
-                <?php the_post_thumbnail( '_themename-blog-image' ); ?>
+                <?php the_post_thumbnail( 'large' ); ?>
             </div>
         <?php } ?>
-        <?php if( !is_single() && $gallery) { ?>
-            <div class="c-post__gallery-gutenberg">
+        <?php if( !is_single() && get_post_gallery()) { ?>
+            <div class="c-post__gallery">
                 <?php  
-                    echo $gallery['innerHTML'];
+                    $gallery = get_post_gallery(get_the_ID(), false);
+                    $gallery = explode(',', $gallery['ids']);
+                    foreach( $gallery as $id) {
+                        echo wp_get_attachment_image($id, 'large');
+                    }
                 ?>
             </div>
         <?php } ?>

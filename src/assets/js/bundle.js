@@ -4,8 +4,8 @@ import './components/navigation';
 import 'slick-carousel';
 
 $(document).ready(() => {
-  $(".c-post__gallery").slick({
+  $(".c-post__gallery, .c-post__gallery-gutenberg .wp-block-gallery").slick({
     arrows: false,
-    adaptiveHeight: true,
+    adaptiveHeight: true
   });
 })
