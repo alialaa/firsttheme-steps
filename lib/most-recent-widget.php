@@ -15,7 +15,9 @@ class _themename_Most_Recent_Widget extends WP_Widget {
             '_themename_mst_recent_widget',
             esc_html__('Recent Posts', '_themename'),
             array(
-                'description' => esc_html__('some description', '_themename')            )
+                'description' => esc_html__('some description', '_themename'),
+                'customize_selective_refresh' => true
+            )
         );
     }
 
@@ -87,7 +89,7 @@ class _themename_Most_Recent_Widget extends WP_Widget {
             );
 
             if($most_recent_query->have_posts()) {
-                echo '<div>';
+                echo '<div class="most_recent_widget">';
                 while($most_recent_query->have_posts()) {
                     $most_recent_query->the_post();
                     echo '<div>';
