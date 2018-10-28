@@ -31,6 +31,17 @@ function _themename_content_width() {
 
 add_action('template_redirect', '_themename_content_width');
 
+
+function _themename_image_sizes( $sizes, $size, $image_src, $image_meta, $attachent_id ){
+    $width = $size[0];
+    global $content_width;
+    return 'slfjl';
+}
+
+add_filter('wp_calculate_image_sizes','_themename_image_sizes' , 10, 5);
+
+
+
 function _themename_handle_delete_post() {
     if( isset($_GET['action']) && $_GET['action'] === '_themename_delete_post' ) {
         if(!isset($_GET['nonce']) || !wp_verify_nonce( $_GET['nonce'], '_themename_delete_post_' . $_GET['post'] ) ) {
