@@ -15,7 +15,7 @@ foreach ($blocks as $block) {
 
         <?php if(get_the_post_thumbnail() !== '' && (!$gallery || is_single())) { ?>
             <div class="c-post__thumbnail">
-                <?php the_post_thumbnail( '_themename-blog-image' ); ?>
+                <?php the_post_thumbnail( 'large' ); ?>
             </div>
         <?php } ?>
         <?php if( !is_single() && $gallery) { ?>
