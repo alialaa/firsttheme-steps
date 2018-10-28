@@ -1,9 +1,11 @@
 import $ from 'jquery';
 import './components/slider';
 import './components/navigation';
+import 'slick-carousel';
 
-let x = 0;
-
-$('body').click(() => {
-	//alert(true)
+$(document).ready(() => {
+  $(".c-post__gallery").slick({
+    arrows: false,
+    adaptiveHeight: true,
+  });
 })
