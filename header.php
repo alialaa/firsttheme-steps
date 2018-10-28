@@ -33,3 +33,7 @@
 	</header>
 	
 	<div id="content">
+
+
+    <?php 
+    //var_dump(wp_get_attachment_image_url(1905,'_themename-blog-image'));
