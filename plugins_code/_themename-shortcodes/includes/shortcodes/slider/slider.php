@@ -9,7 +9,7 @@ function _themename_slider($atts = [], $content = null, $tag = '') {
 	$o = '<div class="_themename-slider" data-slick=\'{"autoplay":' . ($autoplay ? 'true' : 'false') . ', "arrows": ' . ($arrows ? 'true' : 'false') . '}\'>';
 
 		if(!is_null($content)){
-			$o .= do_shortcode($content);
+			$o .= do_shortcode(shortcode_unautop($content));
 		}
 
 	$o .= '</div>';

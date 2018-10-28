@@ -55,4 +55,3 @@ function _themename_meta( $id, $key, $default) {
 }
 
 ?>
-
