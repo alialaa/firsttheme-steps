@@ -15,8 +15,7 @@ class _themename_Most_Recent_Widget extends WP_Widget {
             '_themename_mst_recent_widget',
             esc_html__('Recent Posts', '_themename'),
             array(
-                'description' => esc_html__('some description', '_themename'),
-                'customize_selective_refresh' => true
+                'description' => esc_html__('some description', '_themename')
             )
         );
     }
