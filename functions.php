@@ -11,6 +11,25 @@ require_once('lib/comment-callback.php');
 //require_once('lib/metaboxes.php');
 
 
+if (!isset($content_width)) {
+    $content_width = 800;
+}
+
+function _themename_content_width() {
+    global $content_width;
+    global $post;
+
+    if (is_single() && $post->post_type === 'post') {
+        $layout = _themename_meta( $post->ID, '__themename_post_layout', 'full' );
+        $sidebar = is_active_sidebar( 'primary-sidebar' );
+        if($layout === 'sidebar' && !$sidebar) {
+            $layout = 'full';
+        }
+        $content_width = $layout === 'full' ? 800 : 738;
+    }
+}
+
+add_action('template_redirect', '_themename_content_width');
 
 function _themename_handle_delete_post() {
     if( isset($_GET['action']) && $_GET['action'] === '_themename_delete_post' ) {

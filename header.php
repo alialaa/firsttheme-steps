@@ -33,7 +33,7 @@
 	</header>
 	
 	<div id="content">
-
-
+    
+    <!-- <img src="http://via.placeholder.com/1200x500" alt="">-->    
     <?php 
     //var_dump(wp_get_attachment_image_url(1905,'_themename-blog-image'));
