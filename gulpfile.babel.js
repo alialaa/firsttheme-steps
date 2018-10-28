@@ -13,11 +13,20 @@ import browserSync from 'browser-sync';
 import zip from 'gulp-zip';
 import replace from 'gulp-replace';
 import info from './package.json';
+import rename from 'gulp-rename';
 
 const server = browserSync.create();
 const PRODUCTION = yargs.argv.prod;
 
 const paths = {
+	rename: {
+    	src: [
+	      	"archive-_themename_portfolio.php",
+	      	"single-_themename_portfolio.php",
+	      	"taxonomy-_themename_skills.php",
+	      	"taxonomy-_themename_project_type.php"
+    	]
+  	},
 	styles: {
 		src: ['src/assets/scss/bundle.scss','src/assets/scss/admin.scss','src/assets/scss/editor.scss'],
 		dest: 'dist/assets/css'
@@ -53,11 +62,32 @@ const paths = {
 		      "!.gitignore",
 		      "!gulpfile.babel.js",
 		      "!package.json",
-		      "!package-lock.json"
+		      "!package-lock.json",
+		      "!archive-_themename_portfolio.php",
+			  "!single-_themename_portfolio.php",
+			  "!taxonomy-_themename_skills.php",
+			  "!taxonomy-_themename_project_type.php"
     	],
 		dest: 'packaged'
 	}
 }
+
+export const replace_filenames = () => {
+  return gulp
+    .src(paths.rename.src)
+    .pipe(
+      rename(path => {
+        path.basename = path.basename.replace("_themename", info.name);
+      })
+    )
+    .pipe(gulp.dest("./"));
+};
+
+export const delete_replaced_filenames = () => {
+  return del(
+    paths.rename.src.map(filename => filename.replace("_themename", info.name))
+  );
+};
 
 export const serve = (done) => {
 	server.init({
@@ -149,6 +179,6 @@ export const compress = () => {
 
 export const dev = gulp.series(clean, gulp.parallel(styles, scripts, images, copy), serve, watch);
 export const build = gulp.series(clean, gulp.parallel(styles, scripts, images, copy),copyPlugins);
-export const bundle = gulp.series(build,compress);
+export const bundle = gulp.series(build, replace_filenames, compress, delete_replaced_filenames);
 
 export default dev;
