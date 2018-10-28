@@ -35,7 +35,8 @@ function _themename__pluginname_setup_post_type() {
         'public' => true,
         'has_archive' => true,
         'menu_icon' => 'dashicons-format-gallery',
-        'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments')
+        'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
+        'rewrite' => array('slug' => 'portfolio')
     );
     register_post_type('_themename_portfolio', $args);
 }
