@@ -1,4 +1,4 @@
-	import gulp from 'gulp';
+import gulp from 'gulp';
 import yargs from 'yargs';
 import sass from 'gulp-sass';
 import cleanCss from 'gulp-clean-css';

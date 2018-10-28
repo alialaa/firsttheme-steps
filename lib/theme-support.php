@@ -11,6 +11,15 @@
 			'flex-height'=>true,
 			'flex-width'=>true,
 		) );
+		add_theme_support( 'post-formats', array(
+			'aside',
+			'image',
+			'video',
+			'quote',
+			'link',
+			'gallery',
+			'audio'
+		) );
 		add_theme_support( 'align-wide' );
 	}
 
