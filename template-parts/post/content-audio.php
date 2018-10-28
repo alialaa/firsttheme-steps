@@ -10,7 +10,7 @@ $audios = get_media_embedded_in_content($content, array('audio', 'iframe'));
 
         <?php if(get_the_post_thumbnail() !== '' && (empty($audios) || is_single())) { ?>
             <div class="c-post__thumbnail">
-                <?php the_post_thumbnail( '_themename-blog-image' ); ?>
+                <?php the_post_thumbnail( 'large' ); ?>
             </div>
         <?php } ?>
         <?php if( !is_single() && !empty($audios)) { ?>
