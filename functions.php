@@ -11,6 +11,21 @@ require_once('lib/comment-callback.php');
 //require_once('lib/metaboxes.php');
 
 
+add_filter('register_post_type_args', '_themename_filter_portfolio', 10, 2);
+function _themename_filter_portfolio($args, $post_type) {
+    if($post_type === '_themename_portfolio') {
+        $args['rewrite']['slug'] = get_theme_mod('_themename_portfolio_slug', 'portfolio');
+    }
+    return $args;
+}
+
+add_action('customize_save_after', '_themename_customize_save_after');
+
+function _themename_customize_save_after(){
+    flush_rewrite_rules();
+}
+
+
 if(!isset($content_width)) {
     $content_width = 800;
 }
