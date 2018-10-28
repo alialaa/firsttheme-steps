@@ -15,8 +15,7 @@ class _themename_Most_Recent_Widget extends WP_Widget {
             '_themename_mst_recent_widget',
             esc_html__('Recent Posts', '_themename'),
             array(
-                'description' => esc_html__('some description', '_themename')
-            )
+                'description' => esc_html__('some description', '_themename')            )
         );
     }
 
@@ -71,8 +70,35 @@ class _themename_Most_Recent_Widget extends WP_Widget {
     }
 
     public function widget($args, $instance) {
-        var_dump($args);
-        echo "ljljl";
+        echo $args['before_widget'];
+
+            if(isset($instance['title']) && !empty($instance['title'])) {
+                $title = apply_filters('widget_title', $instance['title']);
+                echo $args['before_title'] . esc_html($title) . $args['after_title'];
+            }
+
+            $most_recent_query = new WP_query(
+                array(
+                    'ignore_sticky_posts' => true,
+                    'post_type' => 'post',
+                    'posts_per_page' => isset($instance['post_count']) ? intval($instance['post_count']) : 3,
+                    'orderby' => isset($instance['sort_by']) ? _themename_sanitize_sort_by($instance['sort_by']) : 'date'
+                )
+            );
+
+            if($most_recent_query->have_posts()) {
+                echo '<div>';
+                while($most_recent_query->have_posts()) {
+                    $most_recent_query->the_post();
+                    echo '<div>';
+                    echo '<h6><a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a></h6>';
+                    echo isset($instance['include_date']) && $instance['include_date'] ? get_the_date() : '';
+                    echo '</div>';
+                }
+                echo '</div>';
+            }
+
+        echo $args['after_widget'];
     }
 
     public function update($new_instance, $old_instance) {
