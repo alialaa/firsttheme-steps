@@ -76,7 +76,7 @@ const paths = {
 
 export const pot = () => {
   return gulp
-    .src("**/*.php").pipe(wpPot({
+    .src(['**/*.php', '!lib/class-tgm-plugin-activation.php']).pipe(wpPot({
         domain: "_themename",
         package: info.name
       })
